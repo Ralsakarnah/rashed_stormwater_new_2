@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depth Dashboard</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<h2>IIT Stormwater Dashboard</h2>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progress-bar"></div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Depth (Meters)</th>
+        </tr>
+    </thead>
+    <tbody id="data-table">
+        <!-- Data will be inserted here by JavaScript -->
+    </tbody>
+</table>
+
+<!-- Spinner (Visible only when loading) -->
+<div id="loading-spinner" class="spinner"></div>
+
+<!-- Link to external JS file -->
+<script src="/static/js/data.js"></script>
+
+</body>
+</html>
