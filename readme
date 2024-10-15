@@ -1,0 +1,26 @@
+if you want to change the data sheet and adapt the dashboard to your own google sheet do the following
+
+1. Create a New Google Sheet
+Go to Google Sheets and create a new spreadsheet.
+Make sure the columns are labeled exactly as date, time, and length, or modify your code to reflect any changes in these names.
+
+2. Share the Google Sheet
+Click on the Share button (top right of the Google Sheet).
+Set the sharing permissions to Anyone with the link can view. This allows your app to read the data without needing specific permissions for every user.
+
+3. Update Your Code with the New Google Sheet URL
+In the gs.py file, update the open_by_url function to use the new URL:
+Example: https://docs.google.com/spreadsheets/d/YOUR_NEW_SPREADSHEET_ID/edit?usp=sharing"
+
+4. Ensure the Google Sheets API is Set Up
+Make sure that the new sheet is accessible via the Google Sheets API.
+go into google cloud, make a new project, enable google drive api, google sheets api, go to service accounts, make a key for both google sheets and google drive api, download the JSON file (GOOGLE SHEET ONLY)
+
+5. Update Render Environment 
+Make sure you update the Render Environment with your new key as if you don't it will not be able to access YOUR gooogle sheet with YOUR data
+to do so go to render, go to dashboard, create a new web service, login to github, attach your repository with your updated code, fill in the information it asks you, make sure to put python file.py for START COMMAND, then the most important environment 
+you put "GOOGLE_CREDENTIALS_JSON" and the value is the GOOGLE sheets API key that you downloaded from the google cloud. 
+
+6. Deploy on Render (if applicable)
+Push your code updates to GitHub (or your version control system), which should trigger a new build on Render.
+Verify that the app on Render is fetching data from the new Google Sheet.
