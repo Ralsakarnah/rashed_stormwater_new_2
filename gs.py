@@ -20,13 +20,12 @@ else:
 
 def get_google_sheet_data():
     try:
-        # Use the correct Google Sheets URL
         sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1DAF8vwF2-2SedpmdOa-qycuYarnArRGFzWaDx-4dicc/edit?gid=634803012#gid=634803012")
         worksheet = sheet.get_worksheet(0)  # Open the first worksheet
-
-        # Get all records from the sheet
         data = worksheet.get_all_records()
+        print(f"Fetched data from Google Sheets: {data}")  # Add this line to log data
         return pd.DataFrame(data)
     except Exception as e:
         print(f"Error fetching data from Google Sheets: {str(e)}")
         return pd.DataFrame()
+

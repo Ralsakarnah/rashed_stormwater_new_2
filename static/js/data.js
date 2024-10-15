@@ -14,6 +14,7 @@ function fetchDataAndUpdate() {
     fetch('/api/data')
         .then(response => response.json())
         .then(data => {
+            console.log('Fetched data:', data); // Add this line to log the data
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear the old table rows
 
@@ -22,7 +23,7 @@ function fetchDataAndUpdate() {
                 row.innerHTML = `
                     <td>${item.date.split(' ')[0]}</td>
                     <td>${item.time}</td>
-                    <td class="${getColorClass(item.depth)}">${item.depth.toFixed(2)}</td>
+                    <td class="${getColorClass(item.depth)}">${item.depth ? item.depth.toFixed(2) : 'N/A'}</td>
                 `;
                 tableBody.appendChild(row);
             });
