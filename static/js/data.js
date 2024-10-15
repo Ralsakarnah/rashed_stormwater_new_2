@@ -1,14 +1,15 @@
 function getColorClass(length) {
     if (length < 50) {
-        return 'depth-green';
-    } else if (length >= 50 && length < 100) {
-        return 'depth-yellow';
-    } else if (length >= 100 && length < 150) {
-        return 'depth-orange';
-    } else {
         return 'depth-red';
+    } else if (length >= 50 && length < 100) {
+        return 'depth-orange';
+    } else if (length >= 100 && length < 150) {
+        return 'depth-yellow';
+    } else {
+        return 'depth-green';
     }
 }
+
 
 function showNotification(message) {
     const notification = document.getElementById('notification');
