@@ -24,3 +24,10 @@ you put "GOOGLE_CREDENTIALS_JSON" and the value is the GOOGLE sheets API key tha
 6. Deploy on Render (if applicable)
 Push your code updates to GitHub (or your version control system), which should trigger a new build on Render.
 Verify that the app on Render is fetching data from the new Google Sheet.
+
+Limits regarding RENDER 
+CPU and MEMORY: .1 CPU and 512 MB RAM which is sufficient for lightweight application 
+Instance Hourse: Render offers 750 free instance hours per month. 
+Automatic Shutdown: after 15 mins of inactivity, render will shut down website, and it will return if theres traffic
+Bandwidth: 100GB per month 
+Database Limits: render offers 1GB of disk space, 256 MB RAM, and a limit of 100 connections. (available for 90 days)
