@@ -30,12 +30,21 @@ function fetchDataAndUpdate() {
             const tableBody = document.getElementById('data-table');
             tableBody.innerHTML = ''; // Clear the old table rows
 
-            data.forEach(item => {
+            // Filter out non-numeric and empty entries
+            const filteredData = data.filter(item => {
+                const numericLength = parseFloat(item.length);
+                return !isNaN(numericLength);  // Only include if length is a valid number
+            });
+
+            // Populate the table with filtered data
+            filteredData.forEach(item => {
                 const row = document.createElement('tr');
+                const lengthValue = parseFloat(item.length).toFixed(2); // Parse and format the length value
+               
                 row.innerHTML = `
                     <td>${item.date.split(' ')[0]}</td>
                     <td>${item.time}</td>
-                    <td class="${getColorClass(item.length)}">${item.length ? item.length.toFixed(2) : 'N/A'}</td>
+                    <td class="${getColorClass(lengthValue)}">${lengthValue}</td>
                 `;
                 tableBody.appendChild(row);
             });
@@ -45,8 +54,6 @@ function fetchDataAndUpdate() {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
-
-
 
 // Polling every 10 seconds
 setInterval(fetchDataAndUpdate, 10000); // 10,000 ms = 10 seconds
