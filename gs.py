@@ -20,7 +20,7 @@ else:
 
 def get_google_sheet_data():
     try:
-        sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1DAF8vwF2-2SedpmdOa-qycuYarnArRGFzWaDx-4dicc/edit?gid=634803012#gid=634803012")
+        sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/16CMxCKYqMK8Lh-aJzMNpJHpXeH325Q4pA7BDnyT8-Do/edit?gid=0#gid=0")
         worksheet = sheet.get_worksheet(0)  # Open the first worksheet
         data = worksheet.get_all_records()
         print(f"Fetched data from Google Sheets: {data}")  # Add this line to log data
