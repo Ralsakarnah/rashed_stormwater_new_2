@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, render_template
 from gs import get_google_sheet_data  # Import the function
 
