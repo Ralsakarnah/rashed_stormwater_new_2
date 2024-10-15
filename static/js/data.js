@@ -10,6 +10,17 @@ function getColorClass(length) {
     }
 }
 
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.add('show');
+
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
 function fetchDataAndUpdate() {
     fetch('/api/data')
         .then(response => response.json())
@@ -28,9 +39,13 @@ function fetchDataAndUpdate() {
                 `;
                 tableBody.appendChild(row);
             });
+
+            // Show the notification popup when data updates
+            showNotification('Data Updated');
         })
         .catch(error => console.error('Error fetching data:', error));
 }
+
 
 
 // Polling every 10 seconds
